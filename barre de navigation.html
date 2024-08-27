@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+nav {
+  background-color: #333;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.menu-icon {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #ffcc00;
+}
+div{
+  color:#fff;
+	
+}
+</style>
+</head>
+<body>
+<nav>
+  <div>TECHLEARN</div>
+  <ul class="menu">
+    <li><a href="#">Se connecter</a></li>
+    <li><a href="#">S'inscrire</a></li>
+    <li><a href="#">A propos</a></li>
+  </ul>
+</nav>
+<script type="text/javascript">
+  (function() {
+    // Fonction pour mettre à jour le compteur de visites
+    function updateVisitCount() {
+        var page = window.location.pathname;
+        var visits = localStorage.getItem('pageVisits') ? JSON.parse(localStorage.getItem('pageVisits')) : {};
+
+        if (visits[page]) {
+            visits[page]++;
+        } else {
+            visits[page] = 1;
+        }
+
+        localStorage.setItem('pageVisits', JSON.stringify(visits));
+    }
+
+    // Mettre à jour le compteur de visites lorsque la page est chargée
+    updateVisitCount();
+})();
+</script>
+</body>
+</html>

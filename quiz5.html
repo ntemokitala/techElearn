@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="view sur HTML, CSS et JavaScript">
+<style type="text/css">
+  nav {
+  background-color: #333;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.menu-icon {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #ffcc00;
+}
+div{
+  color:;
+  
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color:#fff;
+}
+
+.quiz-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color:#fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+form ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+form ol li {
+  margin-bottom: 20px;
+}
+
+#results {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e0f7fa;
+  border: 1px solid #b2ebf2;
+}
+a {
+    width: 100s%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+</style>
+</head>
+<body>
+  <nav>
+  <div>TECHLEARN</div>
+  <ul class="menu">
+   <li><a href="index.html">Accueil</a></li>
+    <li><a href="apropos.html">A propos</a></li>
+  </ul>
+</nav>
+<div>
+  <form id="quizForm">
+    <ol>
+      <li>
+        <h3>Qu'est-ce que le matériel (hardware) en informatique ?</h3>
+        <input type="radio" name="q1" value="a"> Les composants physiques d'un ordinateur<br>
+        <input type="radio" name="q1" value="b"> Leur utilité pour les utilisateurs <br>
+        <input type="radio" name="q1" value="c"> Les programmes et logiciels<br>
+        <input type="radio" name="q1" value="d"> Les réseaux de communication<br>
+        <input type="radio" name="q1" value="e"> Aucunes bonnes réponses<br>
+      </li>
+      <li>
+        <h3>Qu'est-ce que le logiciel (software) en informatique ?</h3>
+        <input type="radio" name="q2" value="a"> Résoudre des problèmes de manière automatisée <br>
+        <input type="radio" name="q2" value="b"> Les composants physiques d'un ordinateur <br>
+        <input type="radio" name="q2" value="c"> Les programmes, systèmes d'exploitation, applications, etc. <br>
+        <input type="radio" name="q2" value="d"> Les interfaces utilisateur<br>
+        <input type="radio" name="q2" value="e"> Contrôler le fonctionnement des ordinateurs<br>
+      </li>
+       <li>
+        <h3>Qu'est-ce que l'architecture des systèmes informatiques ?</h3>
+        <input type="radio" name="q3" value="a"> La conception des circuits électroniques<br>
+        <input type="radio" name="q3" value="b"> L'organisation et l'interaction des composants matériels et logiciels <br>
+        <input type="radio" name="q3" value="c"> La programmation des applications <br>
+        <input type="radio" name="q3" value="d"> Le déploiement des réseaux<br>
+        <input type="radio" name="q3" value="e"> L'écriture de programmes informatiques<br>
+      </li>
+      <li>
+        <h3>Quel est le rôle des réseaux en informatique ?</h3>
+        <input type="radio" name="q4" value="a"> Stocker les données<br>
+        <input type="radio" name="q4" value="b"> Exécuter les programmes<br>
+        <input type="radio" name="q4" value="c"> Déploiement des réseaux<br>
+        <input type="radio" name="q4" value="d"> Interconnecter les systèmes informatiques <br>
+        <input type="radio" name="q4" value="e"> Toutes les réponses sont bonnes<br>
+
+      </li>
+      <li>
+        <h3>Comment les composants matériels et logiciels interagissent-ils ?</h3>
+        <input type="radio" name="q5" value="a"> De manière indépendante<br>
+        <input type="radio" name="q5" value="b"> Par l'intermédiaire des utilisateurs<br>
+        <input type="radio" name="q5" value="c"> De façon aléatoire <br>
+        <input type="radio" name="q5" value="d"> Toutes les réponses sont bonnes<br>
+        <input type="radio" name="q5" value="e"> Selon une architecture définie <br>
+      </li>
+      <!-- Ajoutez les autres questions de la même manière -->
+    </ol>
+    <input type="submit" value="Soumettre">
+  </form>
+  <div id="results"></div>
+</div>
+<script src="quiz.js"></script>
+<script type="text/javascript">
+  (function() {
+    // Fonction pour mettre à jour le compteur de visites
+    function updateVisitCount() {
+        var page = window.location.pathname;
+        var visits = localStorage.getItem('pageVisits') ? JSON.parse(localStorage.getItem('pageVisits')) : {};
+
+        if (visits[page]) {
+            visits[page]++;
+        } else {
+            visits[page] = 1;
+        }
+
+        localStorage.setItem('pageVisits', JSON.stringify(visits));
+    }
+
+    // Mettre à jour le compteur de visites lorsque la page est chargée
+    updateVisitCount();
+})();
+const quizForm = document.getElementById('quizForm');
+const resultsContainer = document.getElementById('results');
+
+const correctAnswers = ['a', 'c', 'b','d','e']; // Réponses correctes pour chaque question
+
+quizForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Empêche la soumission par défaut du formulaire
+
+  let score = 0;
+  const userAnswers = [
+    quizForm.q1.value,
+    quizForm.q2.value,
+    quizForm.q3.value,
+    quizForm.q4.value,
+    quizForm.q5.value,
+    // Ajoutez le reste des réponses de l'utilisateur ici
+  ];
+
+  // Vérifie les réponses
+  userAnswers.forEach((answer, index) => {
+    if (answer === correctAnswers[index]) {
+      score += 1;
+    }
+  });
+
+  // Affiche les résultats
+  resultsContainer.innerHTML = `<h3>Votre score est ${score} sur ${correctAnswers.length}</h3>`;
+});
+</script><br>
+<button><a href="pageact2leçon2.html">Cliquer ici pour retourner à la page des cours</a></button>
+</body>
+</html>
+

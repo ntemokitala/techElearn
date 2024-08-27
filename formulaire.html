@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+<style type="text/css">
+     body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #000;
+    color: #fff;
+}
+
+.login-container {
+    background: #FFA500;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+.background-image {
+    background-image: url('ph2.jpeg');
+    background-size: cover;
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+}
+input {
+    width: 75%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+button,a {
+    width: 75%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+nav {
+  background-color: #333;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.menu-icon {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #ffcc00;
+}
+div{
+  color:#fff;
+  
+}  
+</style>
+</head>
+<body class="background-image">
+<div class="login-container">
+    <h1>Formulaire d'inscription</h1>
+    <form id="registrationForm">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required><br>
+        <label for="postnom">Postnom:</label>
+        <input type="text" id="postnom" name="postnom" required><br>
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required><br>
+        <label for="motdepasse">Mot de passe:</label>
+        <input type="password" id="motdepasse" name="motdepasse" required><br>
+        <label for="nomEcole">Nom de l'école:</label>
+        <input type="text" id="nomEcole" name="nomEcole" required><br>
+        <label for="classe">Classe:</label>
+        <input type="text" id="classe" name="classe" required><br>
+        <button type="submit">Enregistrer</button>
+         <button><a href="index.html">Retour</a></button>
+
+    </form>
+
+    <script src="inscription.js"></script>
+    <script type="text/javascript">
+      (function() {
+    // Fonction pour mettre à jour le compteur de visites
+    function updateVisitCount() {
+        var page = window.location.pathname;
+        var visits = localStorage.getItem('pageVisits') ? JSON.parse(localStorage.getItem('pageVisits')) : {};
+
+        if (visits[page]) {
+            visits[page]++;
+        } else {
+            visits[page] = 1;
+        }
+
+        localStorage.setItem('pageVisits', JSON.stringify(visits));
+    }
+
+    // Mettre à jour le compteur de visites lorsque la page est chargée
+    updateVisitCount();
+})();
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche le formulaire de se soumettre de manière classique
+
+    // Récupère les données du formulaire
+    const nom = document.getElementById('nom').value;
+    const postnom = document.getElementById('postnom').value;
+    const prenom = document.getElementById('prenom').value;
+    const motdepasse = document.getElementById('motdepasse').value;
+    const nomEcole = document.getElementById('nomEcole').value;
+    const classe = document.getElementById('classe').value;
+
+    // Crée un objet pour les données de l'utilisateur
+    const utilisateur = {
+        nom: nom,
+        postnom: postnom,
+        prenom: prenom,
+        motdepasse: motdepasse,
+        nomEcole: nomEcole,
+        classe: classe
+    };
+
+    // Sauvegarde les données dans le localStorage sous une clé unique
+    localStorage.setItem('utilisateur', JSON.stringify(utilisateur));
+
+    // Redirige vers la page de connexion après enregistrement
+    window.location.href = 'connexion.html';
+});
+    </script>
+</div>
+
+</body>
+</html>
+
+

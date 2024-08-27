@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="view sur HTML, CSS et JavaScript">
+<style type="text/css">
+  nav {
+  background-color: #333;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.menu-icon {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #ffcc00;
+}
+div{
+  color:;
+  
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color:#fff;
+}
+
+.quiz-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color:#fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+form ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+form ol li {
+  margin-bottom: 20px;
+}
+
+#results {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e0f7fa;
+  border: 1px solid #b2ebf2;
+}
+a {
+    width: 100s%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+</style>
+</head>
+<body>
+  <nav>
+  <div>TECHLEARN</div>
+  <ul class="menu">
+   <li><a href="index.html">Accueil</a></li>
+    <li><a href="apropos.html">A propos</a></li>
+  </ul>
+</nav>
+<div>
+  <form id="quizForm">
+    <ol>
+      <li>
+        <h3> 1.Quel système d'exploitation est le plus populaire pour les ordinateurs personnels ? </h3>
+        <input type="radio" name="q1" value="a"> Linux <br>
+        <input type="radio" name="q1" value="b"> macOS <br>
+        <input type="radio" name="q1" value="c"> Windows <br>
+        <input type="radio" name="q1" value="d"> ChromeOS <br>
+      </li>
+      <li>
+        <h3> 2.Quel réseau permet de connecter des ordinateurs sur une zone géographique limitée ?</h3>
+        <input type="radio" name="q2" value="a"> Internet <br>
+        <input type="radio" name="q2" value="b"> LAN <br>
+        <input type="radio" name="q2" value="c"> WAN <br>
+        <input type="radio" name="q2" value="d"> VPN <br>
+      </li>
+       <li>
+        <h3> 3.Quel outil permet de naviguer et d'accéder aux ressources sur le World Wide Web ?</h3>
+        <input type="radio" name="q3" value="a"> Navigateur web <br>
+        <input type="radio" name="q3" value="b"> Moteur de recherche <br>
+        <input type="radio" name="q3" value="c"> Courrier électronique <br>
+        <input type="radio" name="q3" value="d"> Système d'exploitation<br>
+      </li>
+      <li>
+        <h3> 4.Quel service permet de stocker et d'accéder à ses fichiers en ligne ?</h3>
+        <input type="radio" name="q4" value="a"> Serveur <br>
+        <input type="radio" name="q4" value="b"> Client <br>
+        <input type="radio" name="q4" value="c"> Stockage en ligne <br>
+        <input type="radio" name="q4" value="d"> Base de données <br> 
+      </li>
+      <li>
+        <h3> 5.Quel aspect de l'informatique concerne la protection des systèmes contre les menaces ?</h3>
+        <input type="radio" name="q5" value="a"> Sécurité informatique <br>
+        <input type="radio" name="q5" value="b"> Base de données <br>
+        <input type="radio" name="q5" value="c"> Réseau local  <br>
+        <input type="radio" name="q5" value="d"> Suite bureautique <br>
+      </li>
+      <!-- Ajoutez les autres questions de la même manière -->
+    </ol>
+    <input type="submit" value="Soumettre">
+  </form>
+  <div id="results"></div>
+</div>
+<script src="quiz.js"></script>
+<script type="text/javascript">
+  (function() {
+    // Fonction pour mettre à jour le compteur de visites
+    function updateVisitCount() {
+        var page = window.location.pathname;
+        var visits = localStorage.getItem('pageVisits') ? JSON.parse(localStorage.getItem('pageVisits')) : {};
+
+        if (visits[page]) {
+            visits[page]++;
+        } else {
+            visits[page] = 1;
+        }
+
+        localStorage.setItem('pageVisits', JSON.stringify(visits));
+    }
+
+    // Mettre à jour le compteur de visites lorsque la page est chargée
+    updateVisitCount();
+})();
+const quizForm = document.getElementById('quizForm');
+const resultsContainer = document.getElementById('results');
+
+const correctAnswers = ['c', 'b', 'a','c','a']; // Réponses correctes pour chaque question
+
+quizForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Empêche la soumission par défaut du formulaire
+
+  let score = 0;
+  const userAnswers = [
+    quizForm.q1.value,
+    quizForm.q2.value,
+    quizForm.q3.value,
+    quizForm.q4.value,
+    quizForm.q5.value,
+    // Ajoutez le reste des réponses de l'utilisateur ici
+  ];
+
+  // Vérifie les réponses
+  userAnswers.forEach((answer, index) => {
+    if (answer === correctAnswers[index]) {
+      score += 1;
+    }
+  });
+
+  // Affiche les résultats
+  resultsContainer.innerHTML = `<h3>Votre score est ${score} sur ${correctAnswers.length}</h3>`;
+});
+</script><br>
+<button><a href="pagecours.html">Cliquer ici pour retourner à la page des cours</a></button>
+</body>
+</html>
+

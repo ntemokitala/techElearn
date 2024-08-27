@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techlearn - Accueil</title>
+<link rel="stylesheet" href="style.css">
+<style type="text/css">
+ body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #000;
+    color: #fff;
+    padding: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.search-form {
+    margin-top: 10px;
+}
+
+.search-form input {
+    padding: 5px;
+    width: 10%;
+     border: none;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    width: 25%;
+    background: #FFA500;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.background-image {
+    background-image: url('ph.jpeg');
+    background-size: cover;
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+}
+footer{
+  background-color: #333;
+  padding: 20px;
+}
+
+.content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #FFA500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+ button,a {
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav {
+  background-color: #333;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}   
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <h1>Techlearn</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+        </ul>
+    </nav>
+    
+</header>
+
+<div class="background-image">
+    <div class="content">
+        <h2>BIENVENUE SUR LA PAGE DES COURS<h2>
+        <h2>Titre des cours</h2>
+        <h2><marquee direction="left">Cliquer pour participé aux leçons 👇</marquee></h2>
+    </div>
+
+    <ul>
+        <p><a href="pageact1leçon1.html">   Histoire de l'informatique leçon 1</a></p><br>
+        <p><a href="pageact1leçon2.html">   Histoire de l'informatique leçon 2</a></p><br>
+        <p><a href="pageact1leçon3.html">   Histoire de l'informatique leçon 3</a></p><br>
+        <p><a href="pageact2leçon1.html">   Concepts généraux de l'informatique leçon 1</a></p><br>
+        <p><a href="pageact2leçon2.html">   Concepts généraux de l'informatique leçon 2</a></p><br>
+        <p><a href="pageact2leçon3.html">   Concepts généraux de l'informatique leçon 3</a></p><br>
+    </ul>
+
+</div>
+<footer><br>
+
+  <div><center>Tous droits réservés, TECHLEARN 2024</center></div>
+</footer>
+<script type="text/javascript">
+    (function() {
+    // Fonction pour mettre à jour le compteur de visites
+    function updateVisitCount() {
+        var page = window.location.pathname;
+        var visits = localStorage.getItem('pageVisits') ? JSON.parse(localStorage.getItem('pageVisits')) : {};
+
+        if (visits[page]) {
+            visits[page]++;
+        } else {
+            visits[page] = 1;
+        }
+
+        localStorage.setItem('pageVisits', JSON.stringify(visits));
+    }
+
+    // Mettre à jour le compteur de visites lorsque la page est chargée
+    updateVisitCount();
+})();
+</script>
+</body>
+</html>

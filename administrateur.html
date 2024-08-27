@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Administration</title>
+    <script>
+        window.onload = function() {
+            var visits = localStorage.getItem('pageVisits') ? JSON.parse(localStorage.getItem('pageVisits')) : {};
+            var visitDisplay = document.getElementById('visit-display');
+
+            for (var page in visits) {
+                var visitInfo = document.createElement('div');
+                visitInfo.textContent = page + ': ' + visits[page] + ' visites';
+                visitDisplay.appendChild(visitInfo);
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Statistiques de Visite</h1>
+    <div id="visit-display"></div>
+</body>
+</html>

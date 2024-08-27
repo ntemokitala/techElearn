@@ -1,0 +1,126 @@
+<!Doctype html>
+<html> 
+<head>
+ <meta Charset="UTF-8">
+ <style type="text/css">
+nav {
+  background-color: #333;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.login-container {
+    background: #FFA500;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    text-align:;
+}
+.menu-icon {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #ffcc00;
+}
+div{
+  color:#fff;  
+}
+footer{
+  background-color: #333;
+  padding: 20px;
+}
+p{
+  justify-content: center;
+  text-align: justify;
+}
+button,p {
+    width: 97%;
+    padding: 15px;
+    margin-top: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align:center;
+}
+.img{
+  float: right;
+}
+</style>
+ </head>
+ <body>
+  <nav>
+  <div>TECHLEARN</div>
+  <ul class="menu">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="apropos.html">A propos</a></li>
+  </ul>
+</nav>
+<body>
+<div class="login-container">
+  <h2>À propos de nous :</h2>
+<p>  
+	Notre équipe est passionnée par l'apprentissage et souhaite offrir aux utilisateurs une manière ludique et informative d'évaluer leurs connaissances. Nous croyons en l'importance de l'éducation continue et de la découverte de nouveaux domaines.<br>
+</p>
+
+ <h2>Nos quiz : </h2>
+
+<p>
+    Nos quiz d'évaluation en ligne ont été conçu pour vous permettre de tester vos connaissances sur divers sujets passionnants. Que vous soyez un débutant curieux ou un expert chevronné, nous offrons des questions adaptées à tous les niveaux. Amusez-vous à répondre aux questions et découvrez où vous vous situez dans le domaine de l'informatique !<br>
+</p>
+
+<h2>Public cible :</h2>
+
+<p>
+    Nos quiz s'adresse à toute personne désireuse d'apprendre, de se divertir et de relever des défis intellectuels. Que vous soyez élève, étudiant ou simplement curieux, nos programmes d'apprentissage et quiz sont fait pour vous.<br>
+	Nous espérons que vous apprécierez l'expérience de nos quiz d'évaluation en ligne. N'hésitez pas à nous contacter si vous avez des questions ou des suggestions.
+</p>
+</div>
+<footer><br>
+  <div><center><h2>Tous droits réservés, TECHLEARN 2024<h2></center></div>
+</footer>
+<script type="text/javascript">
+  (function() {
+    // Fonction pour mettre à jour le compteur de visites
+    function updateVisitCount() {
+        var page = window.location.pathname;
+        var visits = localStorage.getItem('pageVisits') ? JSON.parse(localStorage.getItem('pageVisits')) : {};
+
+        if (visits[page]) {
+            visits[page]++;
+        } else {
+            visits[page] = 1;
+        }
+
+        localStorage.setItem('pageVisits', JSON.stringify(visits));
+    }
+
+    // Mettre à jour le compteur de visites lorsque la page est chargée
+    updateVisitCount();
+})();
+</script>
+</body>
+</html>

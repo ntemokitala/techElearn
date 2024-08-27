@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techlearn - Accueil</title>
+<link rel="stylesheet" href="style.css">
+<style type="text/css">
+
+ body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #000;
+    color: #fff;
+    padding: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.search-form {
+    margin-top: 10px;
+}
+
+.search-form input {
+    padding: 5px;
+    width: 10%;
+     border: none;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    width: 25%;
+    background: #FFA500;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.background-image {
+    background-image: url('ph.jpeg');
+    background-size: cover;
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+}
+footer{
+  background-color: #333;
+  padding: 20px;
+}
+
+.content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #FFA500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+ button,a {
+    width: 30%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+nav {
+  background-color: #333;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.kecha{
+    float: right;
+}
+
+.kelly{
+    float: left;
+    width: 22%;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <h1>Techlearn</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="background-image">
+    <div class="content">
+    <h3> Leçon 1 : Données et traitement de l'information </h3>
+    </div><br>
+
+<div class="video-container">
+    <div class="bad">
+    <video controls  width="700px" height="300px" >
+    <source src="act2leçon 1.mp4" type="video/mp4">
+    </video><br>
+    
+
+<div class="background-image">
+    <div class="content">
+    <h2>Description de la leçon n°1</h2>
+    <ol>
+        <li>
+             Données : Représentation numérique d'éléments d'information (texte, images, sons, etc.)
+        </li>
+        <li>
+             Information : Donnée ayant un sens et une utilité pour un utilisateur
+        </li>
+        <li>
+              Algorithmes : Ensemble d'instructions permettant de résoudre un problème de manière automatisée
+        </li>
+        <li>
+             Programmation : Écriture de programmes informatiques à l'aide de langages de programmation
+        </li>
+</ol>
+    </div>
+     <div>
+    <button class="kelly"><a href="pagecours.html">Retour sur la page des cours</a></button>
+     </div>
+     <div class="video-info">
+        <button class="kecha"><a href="quiz4.html">Cliquer ici pour repondre aux questions</a></button>
+      </div>
+    </div>
+</div>
+<footer>
+  <div><center><h3>Tous droits réservés, TECHLEARN 2024</h3></center></div>
+</footer>
+<script type="text/javascript">
+    (function() {
+    // Fonction pour mettre à jour le compteur de visites
+    function updateVisitCount() {
+        var page = window.location.pathname;
+        var visits = localStorage.getItem('pageVisits') ? JSON.parse(localStorage.getItem('pageVisits')) : {};
+
+        if (visits[page]) {
+            visits[page]++;
+        } else {
+            visits[page] = 1;
+        }
+
+        localStorage.setItem('pageVisits', JSON.stringify(visits));
+    }
+
+    // Mettre à jour le compteur de visites lorsque la page est chargée
+    updateVisitCount();
+})();
+</script>
+</body>
+</html>
